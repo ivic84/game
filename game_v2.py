@@ -17,24 +17,20 @@ def random_predict(number: int = 1) -> int:
     count = 0
     min_number = 1
     max_number = 100
+    predict_number = np.random.randint(min_number, max_number + 1)  # предполагаемое число
 
     while True:
         count += 1
-        predict_number = np.random.randint(min_number, max_number + 1)  # предполагаемое число
+
         if number == predict_number:
             break  # выход из цикла если угадали
-        if number < max_number//2 and min_number < max_number//2:
-            max_number = max_number // 2
- #       if min_number+2 < max_number:
- #           min_number += 1
-#        else:
-#            max_number -= 1
-#        if number > max_number//2 and min_number < max_number//2:
- #           min_number = max_number // 2
- #       else:
- #           min_number += 1
-        if number > min_number*2 and min_number*2 < max_number:
-            min_number *= 2
+        
+        if number > predict_number:
+            min_number = predict_number + 1
+        else:
+            max_number = predict_number - 1
+        predict_number = (max_number + min_number) // 2
+
     return count
 
 
