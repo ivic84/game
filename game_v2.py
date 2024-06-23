@@ -29,10 +29,12 @@ def random_predict(number: int = 1) -> int:
  #           min_number += 1
 #        else:
 #            max_number -= 1
-        if number > max_number//2 and min_number < max_number//2:
-            min_number = max_number // 2
+#        if number > max_number//2 and min_number < max_number//2:
+ #           min_number = max_number // 2
  #       else:
  #           min_number += 1
+        if number > min_number*2 and min_number*2 < max_number:
+            min_number *= 2
     return count
 
 
